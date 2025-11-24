@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - ONLINE HUB</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <h1>ONLINE HUB</h1>
+            <h2>Admin Panel</h2>
+            <form id="login-form" class="form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <div id="login-message" class="message"></div>
+            </form>
+            <p class="login-hint">Default: admin / admin123</p>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard" style="display: none;">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="container">
+                <h1>ONLINE HUB Admin Panel</h1>
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="admin-nav">
+            <div class="container">
+                <button class="tab-btn active" data-tab="services">Services</button>
+                <button class="tab-btn" data-tab="pricing">Pricing</button>
+                <button class="tab-btn" data-tab="bookings">Bookings</button>
+                <button class="tab-btn" data-tab="queries">Queries</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <div class="container">
+                <!-- Services Tab -->
+                <div id="services-tab" class="tab-content active">
+                    <div class="tab-header">
+                        <h2>Manage Services</h2>
+                        <button id="add-service-btn" class="btn btn-primary">Add Service</button>
+                    </div>
+                    <div id="services-list" class="data-list"></div>
+                </div>
+
+                <!-- Pricing Tab -->
+                <div id="pricing-tab" class="tab-content">
+                    <div class="tab-header">
+                        <h2>Manage Pricing</h2>
+                        <button id="add-pricing-btn" class="btn btn-primary">Add Plan</button>
+                    </div>
+                    <div id="pricing-list" class="data-list"></div>
+                </div>
+
+                <!-- Bookings Tab -->
+                <div id="bookings-tab" class="tab-content">
+                    <div class="tab-header">
+                        <h2>Manage Bookings</h2>
+                    </div>
+                    <div id="bookings-list" class="data-list"></div>
+                </div>
+
+                <!-- Queries Tab -->
+                <div id="queries-tab" class="tab-content">
+                    <div class="tab-header">
+                        <h2>Manage Queries</h2>
+                    </div>
+                    <div id="queries-list" class="data-list"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Service Modal -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="service-modal-title">Add Service</h3>
+                <span class="close">&times;</span>
+            </div>
+            <form id="service-form" class="form">
+                <input type="hidden" id="service-id" name="id">
+                <div class="form-group">
+                    <label for="service-name">Service Name *</label>
+                    <input type="text" id="service-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="service-description">Description *</label>
+                    <textarea id="service-description" name="description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="service-icon">Icon (emoji)</label>
+                    <input type="text" id="service-icon" name="icon" placeholder="🎯">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Save Service</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pricing Modal -->
+    <div id="pricing-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="pricing-modal-title">Add Pricing Plan</h3>
+                <span class="close">&times;</span>
+            </div>
+            <form id="pricing-form" class="form">
+                <input type="hidden" id="pricing-id" name="id">
+                <div class="form-group">
+                    <label for="pricing-name">Plan Name *</label>
+                    <input type="text" id="pricing-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="pricing-price">Price *</label>
+                    <input type="number" id="pricing-price" name="price" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="pricing-period">Period</label>
+                    <input type="text" id="pricing-period" name="period" placeholder="/project or /month">
+                </div>
+                <div class="form-group">
+                    <label for="pricing-features">Features (one per line) *</label>
+                    <textarea id="pricing-features" name="features" rows="6" required placeholder="Feature 1&#10;Feature 2&#10;Feature 3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="pricing-featured" name="featured">
+                        Mark as Featured
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Save Plan</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>

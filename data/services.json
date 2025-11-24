@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "name": "Website Development",
+    "description": "Professional website development tailored for army-related organizations and defense contractors. Modern, secure, and responsive websites.",
+    "icon": "💻"
+  },
+  {
+    "id": "2",
+    "name": "Mobile App Development",
+    "description": "Custom mobile applications for iOS and Android platforms. Specialized in secure communication and operational efficiency apps.",
+    "icon": "📱"
+  },
+  {
+    "id": "3",
+    "name": "Army Consultancy",
+    "description": "Expert consultancy services for army-related projects, strategic planning, and technology integration for defense operations.",
+    "icon": "🎖️"
+  },
+  {
+    "id": "4",
+    "name": "System Integration",
+    "description": "Seamless integration of various systems and platforms for improved operational efficiency and data management.",
+    "icon": "⚙️"
+  },
+  {
+    "id": "5",
+    "name": "Training & Support",
+    "description": "Comprehensive training programs and ongoing technical support for all our solutions.",
+    "icon": "📚"
+  },
+  {
+    "id": "6",
+    "name": "Security Solutions",
+    "description": "Advanced security solutions including cybersecurity consulting, secure communications, and data protection.",
+    "icon": "🔒"
+  }
+]
