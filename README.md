@@ -232,7 +232,7 @@ npm start > server.log 2>&1
 
 ## License
 
-© 2024 ONLINE HUB. All rights reserved.
+© 2023-2025 ONLINE HUB. All rights reserved.
 
 ## Contact
 
