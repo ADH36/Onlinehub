@@ -294,7 +294,7 @@ For deployment issues or questions:
 - Check README.md for general setup
 - Review SECURITY.md for security best practices
 - Create an issue on GitHub
-- Contact: info@onlinehub.com
+- Contact: info@onlinehub.co.in
 
 ---
 

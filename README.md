@@ -237,8 +237,8 @@ npm start > server.log 2>&1
 ## Contact
 
 For support or inquiries:
-- Email: info@onlinehub.com
-- Phone: +1 (555) 123-4567
+- Email: info@onlinehub.co.in
+- Phone: 8847097884
 
 ---
 

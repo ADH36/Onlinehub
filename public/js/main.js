@@ -62,7 +62,7 @@ async function loadPricing() {
             card.innerHTML = `
                 <h3>${plan.name}</h3>
                 <div class="price">
-                    $${plan.price}
+                    ₹${plan.price}
                     <span class="price-period">${plan.period || '/project'}</span>
                 </div>
                 <ul class="pricing-features">

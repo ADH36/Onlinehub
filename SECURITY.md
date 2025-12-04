@@ -191,7 +191,7 @@ If file uploads are added, implement:
 
 ## Reporting Security Issues
 
-If you discover a security vulnerability, please email security@onlinehub.com instead of using the issue tracker.
+If you discover a security vulnerability, please email security@onlinehub.co.in instead of using the issue tracker.
 
 ## References
 

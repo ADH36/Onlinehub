@@ -81,7 +81,7 @@ async function initializeDataFiles() {
                 {
                     id: '1',
                     name: 'Basic Package',
-                    price: 2500,
+                    price: 15000,
                     period: '/project',
                     features: [
                         'Basic Website (5 pages)',
@@ -95,7 +95,7 @@ async function initializeDataFiles() {
                 {
                     id: '2',
                     name: 'Professional Package',
-                    price: 5500,
+                    price: 30000,
                     period: '/project',
                     features: [
                         'Advanced Website (10+ pages)',
@@ -111,7 +111,7 @@ async function initializeDataFiles() {
                 {
                     id: '3',
                     name: 'Enterprise Package',
-                    price: 12000,
+                    price: 150000,
                     period: '/project',
                     features: [
                         'Full-scale Web Platform',
@@ -137,6 +137,31 @@ async function initializeDataFiles() {
                         'Technical Advisory',
                         'Project Management',
                         'Priority Support'
+                    ],
+                    featured: false
+                },
+                {
+                    id: '5',
+                    name: 'Token',
+                    price: 50,
+                    period: '/token',
+                    features: [
+                        'Single Service Token',
+                        'Quick Support',
+                        'Basic Consultation'
+                    ],
+                    featured: false
+                },
+                {
+                    id: '6',
+                    name: 'Meeting',
+                    price: 3000,
+                    period: '/session',
+                    features: [
+                        '1 Hour Consultation',
+                        'Expert Guidance',
+                        'Project Planning',
+                        'Technical Review'
                     ],
                     featured: false
                 }
