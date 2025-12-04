@@ -2,7 +2,7 @@
   {
     "id": "1",
     "name": "Website Development",
-    "description": "Professional website development tailored for army-related organizations and defense contractors. Modern, secure, and responsive websites.",
+    "description": "Professional website development tailored for organizations and businesses. Modern, secure, and responsive websites.",
     "icon": "💻"
   },
   {
@@ -13,8 +13,8 @@
   },
   {
     "id": "3",
-    "name": "Army Consultancy",
-    "description": "Expert consultancy services for army-related projects, strategic planning, and technology integration for defense operations.",
+    "name": "Consultancy",
+    "description": "Expert consultancy services for projects, strategic planning, and technology integration for business operations.",
     "icon": "🎖️"
   },
   {

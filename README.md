@@ -1,6 +1,6 @@
-# ONLINE HUB - Army Consultancy & Development Company
+# ONLINE HUB - Consultancy & Development Company
 
-A professional website for ONLINE HUB, a consultancy and development company specializing in army-related services, website development, mobile applications, and more.
+A professional website for ONLINE HUB, a consultancy and development company specializing in business services, website development, mobile applications, and more.
 
 ## Features
 
@@ -242,4 +242,4 @@ For support or inquiries:
 
 ---
 
-**Built with ❤️ for ONLINE HUB - Professional Army Consultancy & Development Services**
+**Built with ❤️ for ONLINE HUB - Professional Consultancy & Development Services**

@@ -1,7 +1,7 @@
 {
   "name": "onlinehub-website",
-  "version": "1.0.0",
-  "description": "ONLINE HUB - Army Consultancy and Development Company Website",
+  "version": "2.0.0",
+  "description": "ONLINE HUB - Consultancy and Development Company Website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,15 +10,16 @@
   "keywords": [
     "consultancy",
     "development",
-    "army",
     "website",
-    "apps"
+    "apps",
+    "razorpay"
   ],
   "author": "ONLINE HUB",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "body-parser": "^1.20.2",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "razorpay": "^2.9.2"
   }
 }

@@ -3,19 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONLINE HUB - Army Consultancy & Development</title>
+    <meta name="description" content="ONLINE HUB - Professional Consultancy & Development Services. Expert website development, mobile apps, and specialized consultancy.">
+    <meta name="keywords" content="consultancy, web development, mobile apps, business solutions, online hub">
+    <meta name="author" content="ONLINE HUB">
+    <title>ONLINE HUB - Consultancy & Development</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="nav-brand">
+            <a href="/" class="nav-brand">
                 <h1>ONLINE HUB</h1>
-                <p class="tagline">Army Consultancy & Development</p>
+                <p class="tagline">Consultancy & Development</p>
+            </a>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/" class="active">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#booking">Book Now</a></li>
@@ -27,13 +44,52 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="hero-content">
+            <h2>Professional <span>Consultancy</span> & Development Solutions</h2>
+            <p>Expert services in website development, mobile applications, and specialized consultancy. Your trusted partner for digital excellence.</p>
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary btn-lg">Explore Services</a>
+                <a href="#booking" class="btn btn-secondary btn-lg">Book Consultation</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <a href="#services">
+                <span>Scroll Down</span>
+                <div class="scroll-icon"></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
         <div class="container">
-            <div class="hero-content">
-                <h2>Professional Army Consultancy & Development Solutions</h2>
-                <p>Expert services in website development, mobile applications, and specialized army-related consultancy</p>
-                <div class="cta-buttons">
-                    <a href="#services" class="btn btn-primary">Explore Services</a>
-                    <a href="#booking" class="btn btn-secondary">Book Consultation</a>
+            <div class="stats-grid fade-in">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="500">0</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="200">0</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="5">0</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="24">0</span>
+                    <span class="stat-label">Support Hours</span>
                 </div>
             </div>
         </div>
@@ -42,10 +98,54 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive solutions tailored for your needs</p>
-            <div id="services-grid" class="services-grid">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive solutions tailored for your needs. We deliver excellence in every project.</p>
+            </div>
+            <div id="services-grid" class="services-grid stagger-animation">
                 <!-- Services will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="section-subtitle">We provide exceptional value and quality in everything we do</p>
+            </div>
+            <div class="features-grid fade-in">
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick turnaround times without compromising on quality</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Secure Solutions</h3>
+                    <p>Top-notch security measures for all our projects</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock assistance for all your queries</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Quality Assured</h3>
+                    <p>Rigorous testing and quality checks on every project</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>Affordable Pricing</h3>
+                    <p>Competitive rates that fit your budget</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Expert Team</h3>
+                    <p>Experienced professionals dedicated to your success</p>
+                </div>
             </div>
         </div>
     </section>
@@ -53,10 +153,66 @@
     <!-- Pricing Section -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">Pricing Plans</h2>
-            <p class="section-subtitle">Transparent pricing for all our services</p>
-            <div id="pricing-grid" class="pricing-grid">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Pricing Plans</h2>
+                <p class="section-subtitle">Transparent pricing for all our services. Choose the plan that works best for you.</p>
+            </div>
+            <div id="pricing-grid" class="pricing-grid stagger-animation">
                 <!-- Pricing will be loaded dynamically -->
+            </div>
+            <div class="payment-methods fade-in">
+                <span>Secure Payments via:</span>
+                <div class="payment-method">
+                    <span>💳 Razorpay</span>
+                </div>
+                <div class="payment-method">
+                    <span>📱 UPI</span>
+                </div>
+                <div class="payment-method">
+                    <span>🏦 Net Banking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Trusted by businesses and individuals across India</p>
+            </div>
+            <div class="testimonials-grid stagger-animation">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Excellent service! The team delivered our website ahead of schedule and the quality exceeded our expectations. Highly recommended!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">👤</div>
+                        <div class="testimonial-info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Professional consultancy services with great expertise in business projects. They understand the unique requirements perfectly.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">👤</div>
+                        <div class="testimonial-info">
+                            <h4>Col. Sharma (Retd.)</h4>
+                            <p>Defense Consultant</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">The mobile app developed by ONLINE HUB has transformed our business operations. Exceptional work and ongoing support!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">👤</div>
+                        <div class="testimonial-info">
+                            <h4>Priya Singh</h4>
+                            <p>Startup Founder</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -64,45 +220,53 @@
     <!-- Booking Section -->
     <section id="booking" class="booking">
         <div class="container">
-            <h2 class="section-title">Book a Consultation</h2>
-            <p class="section-subtitle">Schedule a meeting or request online service</p>
-            <div class="booking-form-container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Book a Consultation</h2>
+                <p class="section-subtitle">Schedule a meeting or request online service. We're here to help!</p>
+            </div>
+            <div class="booking-form-container fade-in">
                 <form id="booking-form" class="form">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Type *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <!-- Options will be loaded dynamically -->
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Type *</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service</option>
-                            <!-- Options will be loaded dynamically -->
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="booking-type">Booking Type *</label>
-                        <select id="booking-type" name="bookingType" required>
-                            <option value="online">Online Service</option>
-                            <option value="meeting">Book Meeting Token</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="preferred-date">Preferred Date</label>
-                        <input type="date" id="preferred-date" name="preferredDate">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-type">Booking Type *</label>
+                            <select id="booking-type" name="bookingType" required>
+                                <option value="online">Online Service</option>
+                                <option value="meeting">Book Meeting Token</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferred-date">Preferred Date</label>
+                            <input type="date" id="preferred-date" name="preferredDate">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="message">Message/Requirements</label>
-                        <textarea id="message" name="message" rows="5"></textarea>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your requirements..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Submit Booking</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Submit Booking</button>
                 </form>
                 <div id="booking-message" class="message"></div>
             </div>
@@ -112,40 +276,60 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">Have questions? Reach out to us</p>
+            <div class="section-header fade-in">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Have questions? Reach out to us anytime!</p>
+            </div>
             <div class="contact-content">
-                <div class="contact-info">
+                <div class="contact-info fade-in-left">
                     <div class="info-item">
-                        <h3>📧 Email</h3>
-                        <p>info@onlinehub.co.in</p>
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@onlinehub.co.in">info@onlinehub.co.in</a></p>
+                        </div>
                     </div>
                     <div class="info-item">
-                        <h3>📞 Phone</h3>
-                        <p>8847097884</p>
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+918847097884">+91 8847097884</a></p>
+                        </div>
                     </div>
                     <div class="info-item">
-                        <h3>📍 Address</h3>
-                        <p>Online hub sadar bazar<br>amritsar - 143001</p>
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h3>Address</h3>
+                            <p>Online Hub, Sadar Bazar<br>Amritsar - 143001, Punjab</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🕐</div>
+                        <div class="info-content">
+                            <h3>Business Hours</h3>
+                            <p>Mon - Sat: 9:00 AM - 7:00 PM<br>Sunday: Closed</p>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-form-container">
-                    <form id="contact-form" class="form">
-                        <div class="form-group">
-                            <label for="contact-name">Name *</label>
-                            <input type="text" id="contact-name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-email">Email *</label>
-                            <input type="email" id="contact-email" name="email" required>
+                <div class="contact-form-container fade-in-right">
+                    <form id="contact-form" class="form form-light">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Name *</label>
+                                <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email *</label>
+                                <input type="email" id="contact-email" name="email" placeholder="Your email" required>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="contact-subject">Subject *</label>
-                            <input type="text" id="contact-subject" name="subject" required>
+                            <input type="text" id="contact-subject" name="subject" placeholder="Subject of your message" required>
                         </div>
                         <div class="form-group">
                             <label for="contact-message">Message *</label>
-                            <textarea id="contact-message" name="message" rows="5" required></textarea>
+                            <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Send Message</button>
                     </form>
@@ -158,11 +342,61 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 ONLINE HUB. All rights reserved.</p>
-            <p>Professional Army Consultancy & Development Services</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>ONLINE HUB</h3>
+                    <p>Your trusted partner for professional Consultancy and Development solutions. We deliver excellence in every project.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Website Development</a></li>
+                        <li><a href="#services">Mobile Apps</a></li>
+                        <li><a href="#services">Consultancy</a></li>
+                        <li><a href="#services">System Integration</a></li>
+                        <li><a href="#services">Security Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms & Conditions</a></li>
+                        <li><a href="/refund-policy.html">Refund Policy</a></li>
+                        <li><a href="/shipping.html">Shipping & Delivery</a></li>
+                        <li><a href="/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ONLINE HUB. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="/privacy-policy.html">Privacy</a>
+                    <a href="/terms.html">Terms</a>
+                    <a href="/refund-policy.html">Refund</a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

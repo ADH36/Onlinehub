@@ -3,9 +3,31 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs').promises;
 const path = require('path');
+const crypto = require('crypto');
+
+// Razorpay SDK (optional - for server-side order creation)
+let Razorpay;
+try {
+    Razorpay = require('razorpay');
+} catch (e) {
+    console.log('Razorpay SDK not installed. Payment features will use test mode.');
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Razorpay Configuration
+const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || 'rzp_test_yourkeyhere';
+const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || 'yoursecrethere';
+
+// Initialize Razorpay instance
+let razorpayInstance = null;
+if (Razorpay && RAZORPAY_KEY_ID && RAZORPAY_KEY_SECRET) {
+    razorpayInstance = new Razorpay({
+        key_id: RAZORPAY_KEY_ID,
+        key_secret: RAZORPAY_KEY_SECRET
+    });
+}
 
 // Middleware
 app.use(cors());
@@ -373,6 +395,130 @@ app.delete('/api/queries/:id', async (req, res) => {
     res.json({ success: true });
 });
 
+// ============================================
+// Razorpay Payment Routes
+// ============================================
+
+// Create Order
+app.post('/api/create-order', async (req, res) => {
+    try {
+        const { planId, planName, amount } = req.body;
+
+        if (!amount || amount <= 0) {
+            return res.status(400).json({ error: 'Invalid amount' });
+        }
+
+        // If Razorpay is configured, create a real order
+        if (razorpayInstance) {
+            const options = {
+                amount: amount, // amount in paise
+                currency: 'INR',
+                receipt: `order_${Date.now()}`,
+                notes: {
+                    planId,
+                    planName
+                }
+            };
+
+            const order = await razorpayInstance.orders.create(options);
+
+            res.json({
+                success: true,
+                order_id: order.id,
+                amount: order.amount,
+                currency: order.currency,
+                key_id: RAZORPAY_KEY_ID
+            });
+        } else {
+            // Test mode - return mock order
+            res.json({
+                success: true,
+                order_id: `order_test_${Date.now()}`,
+                amount: amount,
+                currency: 'INR',
+                key_id: RAZORPAY_KEY_ID,
+                test_mode: true
+            });
+        }
+    } catch (error) {
+        console.error('Error creating order:', error);
+        res.status(500).json({ error: 'Failed to create order' });
+    }
+});
+
+// Verify Payment
+app.post('/api/verify-payment', async (req, res) => {
+    try {
+        const {
+            razorpay_order_id,
+            razorpay_payment_id,
+            razorpay_signature,
+            planId,
+            planName,
+            amount
+        } = req.body;
+
+        // Verify signature
+        const sign = razorpay_order_id + '|' + razorpay_payment_id;
+        const expectedSign = crypto
+            .createHmac('sha256', RAZORPAY_KEY_SECRET)
+            .update(sign)
+            .digest('hex');
+
+        const isAuthentic = expectedSign === razorpay_signature;
+
+        if (isAuthentic || razorpay_order_id.startsWith('order_test_')) {
+            // Save payment record
+            const paymentsFile = path.join(DATA_DIR, 'payments.json');
+            let payments = [];
+            try {
+                payments = await readJSONFile(paymentsFile);
+            } catch (e) {
+                payments = [];
+            }
+
+            const paymentRecord = {
+                id: Date.now().toString(),
+                orderId: razorpay_order_id,
+                paymentId: razorpay_payment_id,
+                planId,
+                planName,
+                amount: amount,
+                status: 'completed',
+                createdAt: new Date().toISOString()
+            };
+
+            payments.push(paymentRecord);
+            await writeJSONFile(paymentsFile, payments);
+
+            res.json({
+                success: true,
+                message: 'Payment verified successfully',
+                paymentId: razorpay_payment_id
+            });
+        } else {
+            res.status(400).json({
+                success: false,
+                error: 'Payment verification failed'
+            });
+        }
+    } catch (error) {
+        console.error('Error verifying payment:', error);
+        res.status(500).json({ error: 'Payment verification failed' });
+    }
+});
+
+// Get Payments (Admin)
+app.get('/api/payments', async (req, res) => {
+    const paymentsFile = path.join(DATA_DIR, 'payments.json');
+    try {
+        const payments = await readJSONFile(paymentsFile);
+        res.json(payments);
+    } catch (e) {
+        res.json([]);
+    }
+});
+
 // Start server
 async function startServer() {
     await initializeDataFiles();
@@ -381,7 +527,7 @@ async function startServer() {
         console.log(`
 ╔════════════════════════════════════════════════════════════════╗
 ║                        ONLINE HUB                              ║
-║           Army Consultancy & Development Company               ║
+║           Consultancy & Development Company                     ║
 ╠════════════════════════════════════════════════════════════════╣
 ║  Server running on port ${PORT}                                    ║
 ║                                                                ║
